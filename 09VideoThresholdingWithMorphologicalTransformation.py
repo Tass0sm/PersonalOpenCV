@@ -28,10 +28,24 @@ while(1):
 
     #cv2.imshow('frame',frame)
     #cv2.imshow('mask',mask)
-    cv2.imshow('erosion',erosion)
-    cv2.imshow('dilation',dilation)
-    cv2.imshow('opening',opening)
-    cv2.imshow('closing',closing)
+    #cv2.imshow('erosion',erosion)
+    #cv2.imshow('dilation',dilation)
+    #cv2.imshow('opening',opening)
+    #cv2.imshow('closing',closing)
+
+    lower_gray = np.array([0,150,0])
+    upper_gray = np.array([180,255,255])
+    mask = cv2.inRange(frame, lower_gray, upper_gray)
+
+    cv2.imshow('mask', mask)
+
+    im2, contours, hierarchy = cv2.findContours(mask,
+                                                cv2.RETR_TREE,
+                                                cv2.CHAIN_APPROX_SIMPLE)
+
+    cv2.drawContours(frame, [contours[1]], -1, 255, -1) # filled
+    
+    cv2.imshow('frame', frame)
 
 
     #cv2.imshow('res',res)

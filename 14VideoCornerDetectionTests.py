@@ -12,6 +12,8 @@ while(1):
     corners = cv2.goodFeaturesToTrack(gray, 100, 0.01, 10)
     corners = np.int0(corners)
 
+    harris = cv2.cornerHarris(frame, 100, 100, 10)
+
     edges = cv2.Canny(frame, 80, 200)
     
     for corner in corners:

@@ -1,4 +1,4 @@
-bimport cv2
+import cv2
 import numpy as np
 
 cap = cv2.VideoCapture(0)
@@ -20,14 +20,13 @@ while(1):
 
     #cv2.imshow('original',frame)
     cv2.imshow('laplacian',laplacian)
-    cv2.imshow('sobelX', sobelx)
-    cv2.imshow('sobelY', sobely)
+    #cv2.imshow('sobelX', sobelx)
+    #cv2.imshow('sobelY', sobely)
     cv2.imshow('edges', edges)
-
-
-
-
+    
     #cv2.imshow('res',res)
+
+    
     
     k = cv2.waitKey(5) & 0xFF
     if k == 27:
